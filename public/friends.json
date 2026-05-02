@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "Aisha Rahman",
+    "picture": "https://randomuser.me/api/portraits/women/44.jpg",
+    "email": "aisha.rahman@gmail.com",
+    "days_since_contact": 18,
+    "status": "overdue",
+    "tags": ["college", "close friend"],
+    "bio": "Met during freshman orientation. She's a product designer in Toronto now. We bond over bad reality TV and good coffee.",
+    "goal": 14,
+    "next_due_date": "2026-04-25"
+  },
+  {
+    "id": 2,
+    "name": "Marcus Webb",
+    "picture": "https://randomuser.me/api/portraits/men/32.jpg",
+    "email": "marcus.webb@outlook.com",
+    "days_since_contact": 6,
+    "status": "on-track",
+    "tags": ["work", "gym buddy"],
+    "bio": "Former colleague turned close friend. We used to grab lunch every Friday. Now we catch up over weekly runs.",
+    "goal": 10,
+    "next_due_date": "2026-05-04"
+  },
+  {
+    "id": 3,
+    "name": "Priya Nair",
+    "picture": "https://randomuser.me/api/portraits/women/68.jpg",
+    "email": "priya.nair92@yahoo.com",
+    "days_since_contact": 27,
+    "status": "overdue",
+    "tags": ["childhood", "family friend"],
+    "bio": "Grew up two houses down from each other. She moved to Bangalore for her MBA and we've been terrible at keeping in touch.",
+    "goal": 21,
+    "next_due_date": "2026-04-18"
+  },
+  {
+    "id": 4,
+    "name": "Jordan Ellis",
+    "picture": "https://randomuser.me/api/portraits/men/76.jpg",
+    "email": "jordan.ellis@protonmail.com",
+    "days_since_contact": 11,
+    "status": "almost due",
+    "tags": ["college", "travel buddy"],
+    "bio": "Backpacked through Southeast Asia together after graduation. Jordan is a freelance photographer based in Lisbon.",
+    "goal": 14,
+    "next_due_date": "2026-05-01"
+  },
+  {
+    "id": 5,
+    "name": "Sofia Mendes",
+    "picture": "https://randomuser.me/api/portraits/women/21.jpg",
+    "email": "sofia.mendes@icloud.com",
+    "days_since_contact": 3,
+    "status": "on-track",
+    "tags": ["close friend", "neighbor"],
+    "bio": "Met at a local book club three years ago. We grab brunch almost every other weekend and share a reading list.",
+    "goal": 7,
+    "next_due_date": "2026-05-04"
+  },
+  {
+    "id": 6,
+    "name": "Daniel Okafor",
+    "picture": "https://randomuser.me/api/portraits/men/54.jpg",
+    "email": "d.okafor@gmail.com",
+    "days_since_contact": 45,
+    "status": "overdue",
+    "tags": ["high school", "old friend"],
+    "bio": "Best friends throughout high school. He's a civil engineer in Lagos now. Life got busy but the bond never faded.",
+    "goal": 30,
+    "next_due_date": "2026-04-08"
+  },
+  {
+    "id": 7,
+    "name": "Lily Chen",
+    "picture": "https://randomuser.me/api/portraits/women/57.jpg",
+    "email": "lily.chen.dev@gmail.com",
+    "days_since_contact": 8,
+    "status": "on-track",
+    "tags": ["work", "mentor"],
+    "bio": "My first engineering manager who became a genuine friend. She's now a VP at a startup in Singapore and gives the best career advice.",
+    "goal": 14,
+    "next_due_date": "2026-05-05"
+  },
+  {
+    "id": 8,
+    "name": "Tariq Hassan",
+    "picture": "https://randomuser.me/api/portraits/men/18.jpg",
+    "email": "tariq.hassan@hotmail.com",
+    "days_since_contact": 19,
+    "status": "almost due",
+    "tags": ["college", "roommate"],
+    "bio": "My college roommate for three years. We used to argue about dishes and now laugh about it on monthly video calls.",
+    "goal": 21,
+    "next_due_date": "2026-05-02"
+  },
+  {
+    "id": 9,
+    "name": "Nina Kovacs",
+    "picture": "https://randomuser.me/api/portraits/women/83.jpg",
+    "email": "nina.kovacs@gmail.com",
+    "days_since_contact": 5,
+    "status": "on-track",
+    "tags": ["close friend", "creative"],
+    "bio": "Met at an art workshop in Budapest. She's a sculptor and illustrator. We collaborate on small creative projects online.",
+    "goal": 10,
+    "next_due_date": "2026-05-04"
+  },
+  {
+    "id": 10,
+    "name": "Ryan Gallagher",
+    "picture": "https://randomuser.me/api/portraits/men/91.jpg",
+    "email": "ryan.g@live.com",
+    "days_since_contact": 13,
+    "status": "almost due",
+    "tags": ["high school", "sports"],
+    "bio": "Played football together all through high school. He coaches youth soccer in Dublin now. We trade voice notes more than texts.",
+    "goal": 14,
+    "next_due_date": "2026-05-01"
+  }
+]
