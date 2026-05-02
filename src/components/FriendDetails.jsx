@@ -15,6 +15,8 @@ import {
   Clock,
 } from "lucide-react";
 
+import "../style/FriendDetails.css";
+
 const statusConfig = {
   overdue: {
     label: "Overdue",
@@ -91,112 +93,6 @@ const FriendDetails = () => {
   const status = statusConfig[friend.status];
   return (
     <>
-      <style>{`
-           @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600&display=swap');
-   
-           @keyframes fadeUp {
-             from { opacity: 0; transform: translateY(18px); }
-             to   { opacity: 1; transform: translateY(0); }
-           }
-           @keyframes heartbeat {
-             0%, 100% { transform: scale(1); }
-             14%  { transform: scale(1.18); }
-             28%  { transform: scale(1); }
-             42%  { transform: scale(1.09); }
-             56%  { transform: scale(1); }
-           }
-           @keyframes softPulse {
-             0%, 100% { box-shadow: 0 0 14px 2px rgba(232,121,160,0.28), 0 4px 18px rgba(190,24,93,0.28); }
-             50%  { box-shadow: 0 0 26px 6px rgba(232,121,160,0.48), 0 8px 28px rgba(190,24,93,0.46); }
-           }
-           @keyframes shimmer {
-             0%   { background-position: -200% center; }
-             100% { background-position:  200% center; }
-           }
-   
-           .fd-section { animation: fadeUp 0.55s both; }
-           .fd-section:nth-child(1) { animation-delay: 0.05s; }
-           .fd-section:nth-child(2) { animation-delay: 0.12s; }
-           .fd-section:nth-child(3) { animation-delay: 0.19s; }
-           .fd-section:nth-child(4) { animation-delay: 0.26s; }
-   
-           .action-btn {
-             font-family: 'Inter', sans-serif;
-             display: flex; align-items: center; gap: 10px;
-             width: 100%; padding: 12px 18px;
-             background: rgba(255,255,255,0.04);
-             border: 1px solid rgba(255,255,255,0.08);
-             border-radius: 14px;
-             color: rgba(253,232,244,0.70);
-             font-size: 0.875rem; font-weight: 500;
-             cursor: pointer;
-             transition: all 0.22s cubic-bezier(.22,1,.36,1);
-             backdrop-filter: blur(12px);
-           }
-           .action-btn:hover {
-             background: rgba(255,255,255,0.08);
-             border-color: rgba(244,114,182,0.20);
-             color: rgba(253,232,244,0.95);
-             transform: translateX(3px);
-           }
-           .action-btn.delete {
-             color: rgba(252,165,165,0.75);
-             border-color: rgba(251,113,133,0.12);
-           }
-           .action-btn.delete:hover {
-             background: rgba(252,165,165,0.07);
-             border-color: rgba(251,113,133,0.30);
-             color: #fca5a5;
-           }
-   
-           .checkin-btn {
-             font-family: 'Inter', sans-serif;
-             display: flex; flex-direction: column; align-items: center; gap: 8px;
-             flex: 1; padding: 16px 12px;
-             background: rgba(255,255,255,0.04);
-             border: 1px solid rgba(255,255,255,0.08);
-             border-radius: 14px;
-             color: rgba(253,232,244,0.70);
-             font-size: 0.8rem; font-weight: 500;
-             cursor: pointer;
-             transition: all 0.22s cubic-bezier(.22,1,.36,1);
-           }
-           .checkin-btn:hover {
-             background: rgba(244,114,182,0.08);
-             border-color: rgba(244,114,182,0.25);
-             color: #f9a8d4;
-             transform: translateY(-3px);
-             box-shadow: 0 8px 24px rgba(139,62,180,0.18);
-           }
-   
-           .edit-btn {
-             font-family: 'Inter', sans-serif;
-             display: flex; align-items: center; gap: 6px;
-             padding: 6px 14px;
-             background: rgba(244,114,182,0.10);
-             border: 1px solid rgba(244,114,182,0.22);
-             border-radius: 10px;
-             color: rgba(249,168,212,0.90);
-             font-size: 0.78rem; font-weight: 500;
-             cursor: pointer;
-             transition: all 0.2s ease;
-           }
-           .edit-btn:hover {
-             background: rgba(244,114,182,0.18);
-             border-color: rgba(244,114,182,0.40);
-             color: #f9a8d4;
-           }
-   
-           .stat-card-inner {
-             transition: all 0.24s cubic-bezier(.22,1,.36,1);
-           }
-           .stat-card-inner:hover {
-             background: rgba(255,255,255,0.08) !important;
-             border-color: rgba(244,114,182,0.22) !important;
-             transform: translateY(-3px);
-           }
-         `}</style>
-
       <div
         className="min-h-screen w-full px-4 sm:px-8 py-10"
         style={{
@@ -378,8 +274,8 @@ const FriendDetails = () => {
                   <Archive size={16} style={{ color: "#93c5fd" }} />
                   Archive
                 </button>
-                <button className="action-btn delete">
-                  <Trash2 size={16} />
+                <button className="action-btn">
+                  <Trash2 size={16} style={{ color: "#fd9393" }} />
                   Delete
                 </button>
               </div>
