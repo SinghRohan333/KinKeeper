@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Context } from "./context";
 
 // const fetchFriendsData = async () => {
@@ -21,7 +21,15 @@ import { Context } from "./context";
 // const friendsPromise = fetchFriendsData();
 
 const Provider = ({ children }) => {
-  const data = {};
+  const [interactionCnt, setInteractionCnt] = useState(0);
+  const [interactionData, setInteractionData] = useState([]);
+
+  const data = {
+    interactionCnt,
+    setInteractionCnt,
+    interactionData,
+    setInteractionData,
+  };
   return <Context.Provider value={data}>{children}</Context.Provider>;
 };
 

@@ -1,18 +1,19 @@
 import { Home, Clock, Activity, Menu, X } from "lucide-react";
 import { useState } from "react";
+import { NavLink } from "react-router";
 
 const Navbar = () => {
-  const [active, setActive] = useState("home");
+  // const [active, setActive] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navItems = [
-    { id: "home", label: "Home", icon: Home },
-    { id: "timeline", label: "Timeline", icon: Clock },
-    { id: "stats", label: "Stats", icon: Activity },
+    { id: "home", label: "Home", icon: Home, link: "/" },
+    { id: "timeline", label: "Timeline", icon: Clock, link: "/timeline" },
+    { id: "stats", label: "Stats", icon: Activity, link: "/statistics" },
   ];
 
   const handleNavClick = (id) => {
-    setActive(id);
+    // setActive(id);
     setMenuOpen(false);
   };
 
@@ -110,27 +111,32 @@ const Navbar = () => {
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-1">
-            {navItems.map(({ id, label, icon: Icon }) => {
-              const isActive = active === id;
+            {navItems.map(({ id, label, icon: Icon, link }) => {
+              // const isActive = active === id;
               return (
-                <button
-                  key={id}
-                  onClick={() => handleNavClick(id)}
-                  className={`flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium cursor-pointer border-none outline-none ${
-                    isActive ? "nav-btn-active text-white" : "nav-btn-inactive"
-                  }`}
-                  style={
-                    !isActive
-                      ? {
-                          color: "rgba(253,232,244,0.50)",
-                          background: "transparent",
-                        }
-                      : {}
-                  }
-                >
-                  <Icon size={15} strokeWidth={2} />
-                  <span>{label}</span>
-                </button>
+                <NavLink to={`${link}`} key={id}>
+                  {({ isActive }) => (
+                    <button
+                      onClick={() => handleNavClick(id)}
+                      className={`flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium cursor-pointer border-none outline-none ${
+                        isActive
+                          ? "nav-btn-active text-white"
+                          : "nav-btn-inactive"
+                      }`}
+                      style={
+                        !isActive
+                          ? {
+                              color: "rgba(253,232,244,0.50)",
+                              background: "transparent",
+                            }
+                          : {}
+                      }
+                    >
+                      <Icon size={15} strokeWidth={2} />
+                      <span>{label}</span>
+                    </button>
+                  )}
+                </NavLink>
               );
             })}
           </div>
@@ -169,27 +175,30 @@ const Navbar = () => {
           }}
         >
           <div className="flex flex-col gap-1 px-5 pb-4 pt-1">
-            {navItems.map(({ id, label, icon: Icon }) => {
-              const isActive = active === id;
+            {navItems.map(({ id, label, icon: Icon, link }) => {
+              // const isActive = active === id;
               return (
-                <button
-                  key={id}
-                  onClick={() => handleNavClick(id)}
-                  className={`mobile-item flex items-center gap-3 w-full px-4 py-2.5 rounded-xl text-sm font-medium cursor-pointer border-none outline-none ${
-                    isActive ? "nav-btn-active text-white" : ""
-                  }`}
-                  style={
-                    !isActive
-                      ? {
-                          color: "rgba(253,232,244,0.50)",
-                          background: "transparent",
-                        }
-                      : {}
-                  }
-                >
-                  <Icon size={16} strokeWidth={2} />
-                  <span>{label}</span>
-                </button>
+                <NavLink to={`${link}`} key={id}>
+                  {({ isActive }) => (
+                    <button
+                      onClick={() => handleNavClick(id)}
+                      className={`mobile-item flex items-center gap-3 w-full px-4 py-2.5 rounded-xl text-sm font-medium cursor-pointer border-none outline-none ${
+                        isActive ? "nav-btn-active text-white" : ""
+                      }`}
+                      style={
+                        !isActive
+                          ? {
+                              color: "rgba(253,232,244,0.50)",
+                              background: "transparent",
+                            }
+                          : {}
+                      }
+                    >
+                      <Icon size={16} strokeWidth={2} />
+                      <span>{label}</span>
+                    </button>
+                  )}
+                </NavLink>
               );
             })}
           </div>

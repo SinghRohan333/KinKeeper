@@ -132,3 +132,21 @@
   border-color: rgba(244, 114, 182, 0.22) !important;
   transform: translateY(-3px);
 }
+/* Disable backdrop-filter on mobile to fix rendering bug */
+@media (max-width: 768px) {
+  .rounded-2xl {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(
+      255,
+      255,
+      255,
+      0.08
+    ) !important; /* slightly more opaque to compensate */
+  }
+  /* Fix action buttons */
+  .action-btn {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}

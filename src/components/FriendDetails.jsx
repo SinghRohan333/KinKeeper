@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { useLoaderData, useParams } from "react-router";
 import { useState } from "react";
 import {
@@ -16,6 +16,9 @@ import {
 } from "lucide-react";
 
 import "../style/FriendDetails.css";
+import ScrollToTop from "./ScrollToTop";
+import HydrateFallbackElement from "./HydrateFallbackElement";
+import { Context } from "../context/context";
 
 const statusConfig = {
   overdue: {
@@ -91,8 +94,54 @@ const FriendDetails = () => {
 
   const [goalEdit, setGoalEdit] = useState(false);
   const status = statusConfig[friend.status];
+
+  const [ready, setReady] = useState(false);
+  const { interactionData, setInteractionData } = useContext(Context);
+
+  useEffect(() => {
+    const t = setTimeout(() => setReady(true), 1500);
+    return () => clearTimeout(t);
+  }, []);
+
+  // Add this in your component, outside handleInteraction
+  useEffect(() => {
+    console.log(interactionData);
+  }, [interactionData]); // ← runs AFTER state actually updates & re-renders
+
+  if (!ready)
+    return (
+      <>
+        <ScrollToTop />
+        <HydrateFallbackElement />
+      </>
+    );
+
+  const handleInteraction = (label) => {
+    const today = new Date();
+    const currentDate = today.toISOString().split("T")[0];
+    const currentTime = today.toLocaleTimeString("en-US", {
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: true,
+    });
+    const randomDuration = `${Math.floor(Math.random() * 56) + 5} min`;
+
+    const data = {
+      id: friend.id,
+      type: label,
+      friend: friend.name,
+      title: `${label} with ${friend.name}`,
+      date: currentDate,
+      time: currentTime,
+      duration: randomDuration,
+    };
+    setInteractionData((prev) => [...prev, data]);
+    // console.log(interactionData);
+  };
+
   return (
     <>
+      <ScrollToTop />
       <div
         className="min-h-screen w-full px-4 sm:px-8 py-10"
         style={{
@@ -468,7 +517,11 @@ const FriendDetails = () => {
                     { icon: MessageSquare, label: "Text", color: "#f9a8d4" },
                     { icon: Video, label: "Video", color: "#93c5fd" },
                   ].map(({ icon: Icon, label, color }) => (
-                    <button key={label} className="checkin-btn">
+                    <button
+                      key={label}
+                      className="checkin-btn"
+                      onClick={() => handleInteraction(`${label}`)}
+                    >
                       <Icon size={22} style={{ color }} strokeWidth={1.8} />
                       <span>{label}</span>
                     </button>

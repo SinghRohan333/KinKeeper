@@ -61,6 +61,12 @@ const Friend = ({ friend }) => {
         className="friend-card relative flex flex-col items-center text-center rounded-2xl px-5 pt-8 pb-6 cursor-pointer"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
+        onMouseDown={(e) =>
+          (e.currentTarget.style.transform = "translateY(-1px) scale(0.97)")
+        }
+        onMouseUp={(e) =>
+          (e.currentTarget.style.transform = "translateY(-4px) scale(1)")
+        }
         style={{
           background: hovered
             ? "rgba(255,255,255,0.08)"

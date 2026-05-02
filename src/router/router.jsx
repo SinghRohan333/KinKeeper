@@ -3,6 +3,7 @@ import App from "../App";
 import Root from "../components/Root";
 import FriendDetails from "../components/FriendDetails";
 import HydrateFallbackElement from "../components/HydrateFallbackElement";
+import Timeline from "../components/Timeline";
 
 export const router = createBrowserRouter([
   {
@@ -19,25 +20,15 @@ export const router = createBrowserRouter([
       },
       {
         path: "/details/:id",
-        loader: async () => {
-          const timerPromise = new Promise((resolve) =>
-            setTimeout(resolve, 2000),
-          );
-          const [res] = await Promise.all([
-            fetch("/friends.json"),
-            timerPromise,
-          ]);
-
-          if (!res.ok) {
-            throw new Error("Failed to fetch details");
-          }
-          const data = await res.json();
-          return data || [];
-        },
+        loader: () => fetch("/friends.json"),
         element: <FriendDetails></FriendDetails>,
         HydrateFallback: () => (
           <HydrateFallbackElement></HydrateFallbackElement>
         ),
+      },
+      {
+        path: "/timeline",
+        element: <Timeline></Timeline>,
       },
     ],
   },
