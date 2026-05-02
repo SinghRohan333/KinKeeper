@@ -19,6 +19,7 @@ import "../style/FriendDetails.css";
 import ScrollToTop from "./ScrollToTop";
 import HydrateFallbackElement from "./HydrateFallbackElement";
 import { Context } from "../context/context";
+import { toast } from "react-toastify";
 
 const statusConfig = {
   overdue: {
@@ -96,7 +97,8 @@ const FriendDetails = () => {
   const status = statusConfig[friend.status];
 
   const [ready, setReady] = useState(false);
-  const { interactionData, setInteractionData } = useContext(Context);
+  const { interactionData, setInteractionData, setInteractionCnt } =
+    useContext(Context);
 
   useEffect(() => {
     const t = setTimeout(() => setReady(true), 1500);
@@ -117,26 +119,61 @@ const FriendDetails = () => {
     );
 
   const handleInteraction = (label) => {
-    const today = new Date();
-    const currentDate = today.toISOString().split("T")[0];
-    const currentTime = today.toLocaleTimeString("en-US", {
-      hour: "numeric",
-      minute: "2-digit",
-      hour12: true,
-    });
-    const randomDuration = `${Math.floor(Math.random() * 56) + 5} min`;
+    try {
+      const today = new Date();
+      const currentDate = today.toISOString().split("T")[0];
+      const currentTime = today.toLocaleTimeString("en-US", {
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: false,
+      });
+      const randomDuration = `${Math.floor(Math.random() * 56) + 5} min`;
 
-    const data = {
-      id: friend.id,
-      type: label,
-      friend: friend.name,
-      title: `${label} with ${friend.name}`,
-      date: currentDate,
-      time: currentTime,
-      duration: randomDuration,
-    };
-    setInteractionData((prev) => [...prev, data]);
-    // console.log(interactionData);
+      const data = {
+        id: `${friend.id}-${Date.now()}`,
+        type: label,
+        friend: friend.name,
+        title: `${label} with ${friend.name}`,
+        date: currentDate,
+        time: currentTime,
+        timestamp: Date.now(),
+        duration: randomDuration,
+      };
+      setInteractionData((prev) => [...prev, data]);
+      setInteractionCnt((prev) => prev + 1);
+
+      toast.success(`${label} with ${friend.name} logged!`, {
+        style: {
+          background: "#130920",
+          border: "1px solid rgba(110,231,183,0.30)",
+          color: "rgba(253,232,244,0.90)",
+          fontFamily: "'Inter', sans-serif",
+          fontSize: "0.85rem",
+          borderRadius: "14px",
+          boxShadow: "0 8px 32px rgba(0,0,0,0.40)",
+        },
+        progressStyle: {
+          background: "linear-gradient(90deg, #6ee7b7, #34d399)",
+        },
+        icon: "✅",
+      });
+    } catch (error) {
+      toast.error("Something went wrong. Please try again.", {
+        style: {
+          background: "#130920",
+          border: "1px solid rgba(251,113,133,0.30)",
+          color: "rgba(253,232,244,0.90)",
+          fontFamily: "'Inter', sans-serif",
+          fontSize: "0.85rem",
+          borderRadius: "14px",
+          boxShadow: "0 8px 32px rgba(0,0,0,0.40)",
+        },
+        progressStyle: {
+          background: "linear-gradient(90deg, #fca5a5, #f87171)",
+        },
+        icon: "❌",
+      });
+    }
   };
 
   return (
@@ -520,7 +557,18 @@ const FriendDetails = () => {
                     <button
                       key={label}
                       className="checkin-btn"
-                      onClick={() => handleInteraction(`${label}`)}
+                      onClick={() =>
+                        handleInteraction(`${label.toLowerCase()}`)
+                      }
+                      onMouseDown={(e) =>
+                        (e.currentTarget.style.transform = "scale(0.93)")
+                      }
+                      onMouseUp={(e) =>
+                        (e.currentTarget.style.transform = "scale(1)")
+                      }
+                      onMouseLeave={(e) =>
+                        (e.currentTarget.style.transform = "scale(1)")
+                      }
                     >
                       <Icon size={22} style={{ color }} strokeWidth={1.8} />
                       <span>{label}</span>

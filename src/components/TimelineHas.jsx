@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { useState, useMemo } from "react";
+import { Context } from "../context/context";
 
 const style = `
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
@@ -21,7 +22,7 @@ const style = `
     --glow:        rgba(232,121,160,0.18);
   }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+  // * { box-sizing: border-box; margin: 0; padding: 0; }
 
   .tl-root {
     min-height: 100vh;
@@ -358,122 +359,6 @@ const style = `
   }
 `;
 
-// ── Data ──────────────────────────────────────────────────────────────────
-const MOCK_ENTRIES = [
-  {
-    id: 1,
-    type: "call",
-    friend: "Aisha Rahman",
-    title: "Call with Aisha",
-    date: "2026-04-28",
-    time: "3:15 PM",
-    duration: "22 min",
-    note: "Caught up about her new product launch. She's stressed but excited.",
-  },
-  {
-    id: 2,
-    type: "text",
-    friend: "Marcus Webb",
-    title: "Text with Marcus",
-    date: "2026-04-27",
-    time: "11:40 AM",
-    note: "Shared the hiking trail photos. He wants to plan a trip next month.",
-  },
-  {
-    id: 3,
-    type: "video",
-    friend: "Priya Nair",
-    title: "Video with Priya",
-    date: "2026-04-25",
-    time: "7:00 PM",
-    duration: "45 min",
-    note: "Long overdue catch-up. She's moving to a new city — big changes!",
-  },
-  {
-    id: 4,
-    type: "call",
-    friend: "Jordan Ellis",
-    title: "Call with Jordan",
-    date: "2026-04-25",
-    time: "1:20 PM",
-    duration: "8 min",
-  },
-  {
-    id: 5,
-    type: "text",
-    friend: "Sofia Mendes",
-    title: "Text with Sofia",
-    date: "2026-04-22",
-    time: "9:05 AM",
-    note: "Birthday reminder sent. She replied with a sweet voice note.",
-  },
-  {
-    id: 6,
-    type: "video",
-    friend: "Daniel Okafor",
-    title: "Video with Daniel",
-    date: "2026-04-19",
-    time: "8:30 PM",
-    duration: "1 hr 10 min",
-    note: "Deep talk about where we want to be in five years. Really grounding.",
-  },
-  {
-    id: 7,
-    type: "call",
-    friend: "Lily Chen",
-    title: "Call with Lily",
-    date: "2026-04-18",
-    time: "2:45 PM",
-    duration: "14 min",
-  },
-  {
-    id: 8,
-    type: "text",
-    friend: "Tariq Hassan",
-    title: "Text with Tariq",
-    date: "2026-04-15",
-    time: "6:00 PM",
-    note: "Sent him the article about architecture in Lagos. He loved it.",
-  },
-  {
-    id: 9,
-    type: "call",
-    friend: "Nina Kovacs",
-    title: "Call with Nina",
-    date: "2026-04-12",
-    time: "10:15 AM",
-    duration: "31 min",
-    note: "She needed advice on a tricky work situation. Good to be there for her.",
-  },
-  {
-    id: 10,
-    type: "video",
-    friend: "Ryan Gallagher",
-    title: "Video with Ryan",
-    date: "2026-04-10",
-    time: "5:00 PM",
-    duration: "28 min",
-  },
-  {
-    id: 11,
-    type: "text",
-    friend: "Aisha Rahman",
-    title: "Text with Aisha",
-    date: "2026-04-08",
-    time: "12:30 PM",
-    note: "Quick check-in before her big presentation.",
-  },
-  {
-    id: 12,
-    type: "call",
-    friend: "Marcus Webb",
-    title: "Call with Marcus",
-    date: "2026-04-03",
-    time: "4:00 PM",
-    duration: "19 min",
-  },
-];
-
 const TYPE_ICON = { call: "📞", text: "💬", video: "🎥" };
 const TYPE_LABEL = { call: "Call", text: "Text", video: "Video" };
 
@@ -494,13 +379,15 @@ function groupByDate(entries) {
   });
   return groups;
 }
+
 const TimelineHas = () => {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("all");
   const [sort, setSort] = useState("newest");
+  const { interactionData } = useContext(Context);
 
   const filtered = useMemo(() => {
-    let list = [...MOCK_ENTRIES];
+    let list = [...interactionData];
 
     // type filter
     if (filter !== "all") list = list.filter((e) => e.type === filter);
@@ -517,18 +404,18 @@ const TimelineHas = () => {
     }
 
     // sort
-    list.sort((a, b) => {
-      const diff = new Date(b.date) - new Date(a.date);
-      return sort === "newest" ? diff : -diff;
-    });
+    list.sort((a, b) =>
+      sort === "newest" ? b.timestamp - a.timestamp : a.timestamp - b.timestamp,
+    );
 
     return list;
   }, [search, filter, sort]);
 
   const groups = groupByDate(filtered);
-  const sortedDates = Object.keys(groups).sort((a, b) =>
-    sort === "newest" ? new Date(b) - new Date(a) : new Date(a) - new Date(b),
-  );
+  const sortedDates = filtered.reduce((acc, entry) => {
+    if (!acc.includes(entry.date)) acc.push(entry.date);
+    return acc;
+  }, []);
 
   return (
     <>
