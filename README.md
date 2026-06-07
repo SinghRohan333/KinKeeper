@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/SinghRohan333/KinKeeper/blob/main/public/keenkeeper_readme_preview.svg" alt="Preview Image" width="680">
+  <img src="https://github.com/SinghRohan333/KinKeeper/blob/main/public/preview.png" alt="Preview Image">
 </p>
 
 <div align="center">
