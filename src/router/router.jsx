@@ -6,6 +6,7 @@ import HydrateFallbackElement from "../components/HydrateFallbackElement";
 import Timeline from "../components/Timeline";
 import Stats from "../components/Stats";
 import NotFound from "../components/NotFound";
+import ErrorElement from "../components/ErrorElement";
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +28,7 @@ export const router = createBrowserRouter([
         HydrateFallback: () => (
           <HydrateFallbackElement></HydrateFallbackElement>
         ),
+        errorElement: <ErrorElement></ErrorElement>,
       },
       {
         path: "/timeline",

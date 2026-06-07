@@ -20,6 +20,7 @@ import ScrollToTop from "./ScrollToTop";
 import HydrateFallbackElement from "./HydrateFallbackElement";
 import { Context } from "../context/context";
 import { toast } from "react-toastify";
+import NotFound from "./NotFound";
 
 const statusConfig = {
   overdue: {
@@ -92,6 +93,9 @@ const FriendDetails = () => {
   const { id } = useParams();
   const friend = friendsData[id - 1];
   // console.log(friend);
+  if (!friend) {
+    throw new Response("Not Found", { status: 404 });
+  }
 
   const [goalEdit, setGoalEdit] = useState(false);
   const status = statusConfig[friend.status];
