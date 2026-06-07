@@ -21,9 +21,7 @@ _Browse, tend, and nurture the relationships that matter most._
 
 <br/>
 
-🚀 **[Live Demo](#)** &nbsp;·&nbsp; 📂 **[GitHub Repository](https://github.com/SinghRohan333/KinKeeper)**
-
-> ⚠️ _Live demo link will be updated after deployment._
+🚀 **[Live Demo](https://kin-keeper-tan.vercel.app/)** &nbsp;·&nbsp; 📂 **[GitHub Repository](https://github.com/SinghRohan333/KinKeeper)**
 
 </div>
 
@@ -185,9 +183,9 @@ KinKeeper/
 
 ## 🌐 Deployment
 
-This project is not yet deployed. It will be hosted on **Vercel / Netlify** soon.
+This project is deployed on **Vercel** .
 
-🔗 Live URL: _Coming soon._
+🔗 Live URL: https://kin-keeper-tan.vercel.app/
 
 To ensure page reloads work correctly after deployment, add a `vercel.json` file at the root:
 
