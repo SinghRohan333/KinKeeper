@@ -29,16 +29,6 @@ _Browse, tend, and nurture the relationships that matter most._
 
 ---
 
-## 📸 Preview
-
-|         Home Dashboard          |            Friend Detail            |          Interaction Timeline           |       Friendship Analytics        |
-| :-----------------------------: | :---------------------------------: | :-------------------------------------: | :-------------------------------: |
-| ![Home](./screenshots/home.png) | ![Detail](./screenshots/detail.png) | ![Timeline](./screenshots/timeline.png) | ![Stats](./screenshots/stats.png) |
-
-> Add your own screenshots to a `/screenshots` folder in the root after deployment.
-
----
-
 ## 🌟 About the Project
 
 **KeenKeeper** is a personal relationship management dashboard that helps you stay intentional about the friendships that matter most. Life gets busy — people drift. KeenKeeper makes sure that doesn't happen quietly.
