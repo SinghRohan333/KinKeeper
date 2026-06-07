@@ -1,9 +1,14 @@
+<p align="center">
+  <img src="https://github.com/SinghRohan333/KinKeeper/blob/main/public/keenkeeper_readme_preview.svg" alt="Preview Image" width="500">
+</p>
+
 <div align="center">
 
 # KeenKeeper 💜
 
-### *Your personal shelf of meaningful connections.*
-*Browse, tend, and nurture the relationships that matter most.*
+### _Your personal shelf of meaningful connections._
+
+_Browse, tend, and nurture the relationships that matter most._
 
 <br/>
 
@@ -18,7 +23,7 @@
 
 🚀 **[Live Demo](#)** &nbsp;·&nbsp; 📂 **[GitHub Repository](https://github.com/SinghRohan333/KinKeeper)**
 
-> ⚠️ *Live demo link will be updated after deployment.*
+> ⚠️ _Live demo link will be updated after deployment._
 
 </div>
 
@@ -26,8 +31,8 @@
 
 ## 📸 Preview
 
-| Home Dashboard | Friend Detail | Interaction Timeline | Friendship Analytics |
-|:-:|:-:|:-:|:-:|
+|         Home Dashboard          |            Friend Detail            |          Interaction Timeline           |       Friendship Analytics        |
+| :-----------------------------: | :---------------------------------: | :-------------------------------------: | :-------------------------------: |
 | ![Home](./screenshots/home.png) | ![Detail](./screenshots/detail.png) | ![Timeline](./screenshots/timeline.png) | ![Stats](./screenshots/stats.png) |
 
 > Add your own screenshots to a `/screenshots` folder in the root after deployment.
@@ -45,41 +50,44 @@ Add friends, set contact goals, track every call, text, and video catch-up, and 
 ## ✨ Key Features
 
 ### 👥 Smart Friend Dashboard
-Manage all your friends in one place. Each friend card shows their photo, name, tags (e.g. *College*, *Work*, *Mentor*), days since last contact, and a color-coded status — **Overdue**, **Almost Due**, or **On-Track**. Summary stat cards at the top give you an instant snapshot of your relationship health.
+
+Manage all your friends in one place. Each friend card shows their photo, name, tags (e.g. _College_, _Work_, _Mentor_), days since last contact, and a color-coded status — **Overdue**, **Almost Due**, or **On-Track**. Summary stat cards at the top give you an instant snapshot of your relationship health.
 
 ### 📞 Quick Check-In & Interaction Logging
+
 From any friend's detail page, log a **Call**, **Text**, or **Video** catch-up in one tap. The interaction is instantly timestamped and added to your global timeline, with a toast notification confirming the entry. Every connection counts.
 
 ### 📊 Friendship Analytics
+
 A dedicated **Stats** page powered by **Recharts** visualizes how you connect. A donut chart breaks down all your interactions by type (Call / Text / Video), with individual count cards showing each as a percentage of your total activity.
 
 ---
 
 ## 🗂️ Pages Overview
 
-| Page | Route | Description |
-|---|---|---|
-| 🏠 **Home** | `/` | Dashboard with friend cards, summary stats, and an "Add a Friend" CTA |
-| 👤 **Friend Detail** | `/friends/:id` | Profile with contact stats, relationship goal, and Quick Check-In buttons |
-| 📜 **Timeline** | `/timeline` | Chronological log of all interactions with search, filter, and sort options |
-| 📊 **Stats** | `/stats` | Friendship Analytics with a Recharts donut chart by interaction type |
-| 🔍 **404** | `*` | Custom not-found page for any unknown route |
+| Page                 | Route          | Description                                                                 |
+| -------------------- | -------------- | --------------------------------------------------------------------------- |
+| 🏠 **Home**          | `/`            | Dashboard with friend cards, summary stats, and an "Add a Friend" CTA       |
+| 👤 **Friend Detail** | `/friends/:id` | Profile with contact stats, relationship goal, and Quick Check-In buttons   |
+| 📜 **Timeline**      | `/timeline`    | Chronological log of all interactions with search, filter, and sort options |
+| 📊 **Stats**         | `/stats`       | Friendship Analytics with a Recharts donut chart by interaction type        |
+| 🔍 **404**           | `*`            | Custom not-found page for any unknown route                                 |
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Technology | Version | Purpose |
-|---|---|---|
-| ⚛️ **React** | v19 | Core UI library |
-| 🔀 **React Router** | v7 | Client-side routing & navigation |
-| 🎨 **Tailwind CSS** | v4 | Utility-first styling & responsive layout |
-| 🌼 **DaisyUI** | v5 | Pre-built, themeable component library |
-| 📈 **Recharts** | v3 | Donut/pie chart for the Analytics page |
-| 🔔 **React Toastify** | v11 | Toast notifications for user feedback |
-| 🖼️ **Lucide React** | v1.12 | Clean, consistent icon set |
-| 🎭 **React Icons** | v5 | Extended icon library |
-| ⚡ **Vite** | v8 | Lightning-fast build tool and dev server |
+| Technology            | Version | Purpose                                   |
+| --------------------- | ------- | ----------------------------------------- |
+| ⚛️ **React**          | v19     | Core UI library                           |
+| 🔀 **React Router**   | v7      | Client-side routing & navigation          |
+| 🎨 **Tailwind CSS**   | v4      | Utility-first styling & responsive layout |
+| 🌼 **DaisyUI**        | v5      | Pre-built, themeable component library    |
+| 📈 **Recharts**       | v3      | Donut/pie chart for the Analytics page    |
+| 🔔 **React Toastify** | v11     | Toast notifications for user feedback     |
+| 🖼️ **Lucide React**   | v1.12   | Clean, consistent icon set                |
+| 🎭 **React Icons**    | v5      | Extended icon library                     |
+| ⚡ **Vite**           | v8      | Lightning-fast build tool and dev server  |
 
 ---
 
@@ -93,17 +101,20 @@ A dedicated **Stats** page powered by **Recharts** visualizes how you connect. A
 ### Installation & Setup
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/SinghRohan333/KinKeeper.git
    cd KinKeeper
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Start the development server**
+
    ```bash
    npm run dev
    ```
@@ -120,6 +131,7 @@ npm run build
 ```
 
 Preview the production build locally:
+
 ```bash
 npm run preview
 ```
@@ -185,7 +197,7 @@ KinKeeper/
 
 This project is not yet deployed. It will be hosted on **Vercel / Netlify** soon.
 
-🔗 Live URL: *Coming soon.*
+🔗 Live URL: _Coming soon._
 
 To ensure page reloads work correctly after deployment, add a `vercel.json` file at the root:
 
@@ -225,7 +237,7 @@ This project is open source and available under the [MIT License](./LICENSE).
 
 Made with 💜 for meaningful connections.
 
-**KeenKeeper** — *Friends to keep close in your life.*
+**KeenKeeper** — _Friends to keep close in your life._
 
 ⭐ If you found this useful, give it a star on [GitHub](https://github.com/SinghRohan333/KinKeeper)!
 
